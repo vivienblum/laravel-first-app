@@ -2,15 +2,13 @@
 <html>
   <head>
     <title>@yield('title', 'First App')</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
   </head>
-  <body>
+  <body style="padding: 40px;">
 
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
+    <div class="container">
+      @yield('content')
+    </div>
 
-    @yield('content')
   </body>
 </html>
