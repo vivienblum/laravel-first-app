@@ -15,5 +15,48 @@ class ProjectsController extends Controller
       ]);
     }
 
+    public function create() {
+
+      return view('projects.create');
+    }
+
+    public function store() {
+
+      Project::create([
+        'title' => request('title'),
+        'description' => request('description'),
+      ]);
+
+      return redirect('/projects');
+    }
+
+    public function show(Project $project) {
+
+      return view('projects.show', compact('project'));
+    }
+
+    public function edit(Project $project) {
+
+      return view('projects.edit', [
+        'project' => $project
+      ]);
+    }
+
+    public function update(Project $project) {
+
+      $project->title = request('title');
+      $project->description = request('description');
+
+      $project->save();
+
+      return redirect('/projects');
+    }
+
+    public function destroy(Project $project) {
+      $project->delete();
+
+      return redirect('/projects');
+    }
+
 
 }
