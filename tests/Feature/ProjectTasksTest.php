@@ -25,4 +25,21 @@ class ProjectTasksTest extends TestCase
             'project_id' => $project->id,
         ]);
     }
+
+    /** @test */
+    public function complete_task() {
+        $project = factory('App\Project')->create();
+
+        $task = factory('App\Task')->create();
+
+        $attributes = ['completed' => 'on'];
+
+        $this->patch('/tasks/' . $task->project_id, $attributes);
+
+        $this->assertDatabaseHas('tasks', [
+            'id' => $task->id,
+            'project_id' => $task->project_id,
+            'completed' => $attributes['completed'],
+        ]);
+    }
 }
