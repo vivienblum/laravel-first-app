@@ -18,3 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('projects', 'Api\\ProjectsController');
+
+Route::get('/projects/{project}/tasks', 'Api\\ProjectTasksController@index');
+Route::post('/projects/{project}/tasks', 'Api\\ProjectTasksController@store');
+Route::get('/projects/{project}/tasks/{task}', 'Api\\ProjectTasksController@show');
+Route::patch('/projects/{project}/tasks/{task}', 'Api\\ProjectTasksController@update');
+Route::delete('/projects/{project}/tasks/{task}', 'Api\\ProjectTasksController@destroy');
