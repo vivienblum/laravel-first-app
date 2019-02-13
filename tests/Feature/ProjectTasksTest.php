@@ -11,7 +11,8 @@ class ProjectTasksTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function add_task() {
+    public function addTask()
+    {
         $project = factory('App\Project')->create();
 
         $attributes = [
@@ -27,7 +28,8 @@ class ProjectTasksTest extends TestCase
     }
 
     /** @test */
-    public function complete_task() {
+    public function completeTask()
+    {
         $project = factory('App\Project')->create();
 
         $task = factory('App\Task')->create();

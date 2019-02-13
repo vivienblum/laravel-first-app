@@ -8,12 +8,13 @@ class Project extends Model
 {
     protected $guarded = [];
 
-    public function tasks() {
-      return $this->hasMany(Task::class);
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
 
-    public function addTask($task) {
-
-      return $this->tasks()->create($task);
+    public function addTask($task)
+    {
+        return $this->tasks()->create($task);
     }
 }

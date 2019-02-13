@@ -11,7 +11,8 @@ class ProjectsTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function create_project() {
+    public function createProject()
+    {
         $attributes = [
             'title' => 'Un titre',
             'description' => 'Une description',
@@ -23,7 +24,8 @@ class ProjectsTest extends TestCase
     }
 
     /** @test */
-    public function edit_project() {
+    public function editProject()
+    {
         $project = factory('App\Project')->create();
 
         $attributes = [
@@ -37,12 +39,12 @@ class ProjectsTest extends TestCase
     }
 
     /** @test */
-    public function delete_project() {
+    public function deleteProject()
+    {
         $project = factory('App\Project')->create();
 
         $this->delete('/projects/' . $project->id);
 
         $this->assertDatabaseMissing('projects', ['id' => $project->id]);
     }
-
 }

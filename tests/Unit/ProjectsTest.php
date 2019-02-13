@@ -13,13 +13,12 @@ class ProjectsTest extends TestCase
     /**
      * @test
      */
-    public function add_task()
+    public function addTask()
     {
         $project = factory('App\Project')->create();
 
         $project->addTask([
-          // 'project_id' => $project->id,
-          'description' => 'Test',
+            'description' => 'Test',
         ]);
 
         $this->assertEquals('Test', $project->tasks[0]->description);
