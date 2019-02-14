@@ -13,7 +13,7 @@ class EmailController extends Controller
         // $emailJob = (new SendEmailJob())->delay(now()->addSeconds(3));
         //
         // dispatch($emailJob);
-
+        // dd(config('queue'));
         SendEmailJob::dispatch()
             ->delay(now()->addSeconds(3));
 
