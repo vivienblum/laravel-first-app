@@ -13,6 +13,9 @@ class EmailController extends Controller
         SendEmailJob::dispatch()
             ->delay(now()->addSeconds(3));
 
+            session()->flash('message-content', 'Job has been added');
+            session()->flash('message-type', 'info');
+
         return redirect('/projects');
     }
 }
