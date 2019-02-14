@@ -10,13 +10,9 @@ class EmailController extends Controller
 {
     public function sendEmail()
     {
-        // $emailJob = (new SendEmailJob())->delay(now()->addSeconds(3));
-        //
-        // dispatch($emailJob);
-        // dd(config('queue'));
         SendEmailJob::dispatch()
             ->delay(now()->addSeconds(3));
 
-        echo 'email sent';
+        return redirect('/projects');
     }
 }
