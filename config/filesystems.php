@@ -64,6 +64,17 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'gcs' => [
+            'driver' => 'gcs',
+            // 'project_id' => 'playplay-infra',
+            'projectId' => 'playplay-infra',
+            'bucket' => env('GCS_BUCKET_NAME', null),
+            'keyFilePath' => env('GCS_KEY_FILE', null),
+            // 'key_file' => env('GCS_KEY_FILE', null),
+            'path_prefix' => null,
+            'storage_api_url' => null,
+        ],
+
     ],
 
 ];

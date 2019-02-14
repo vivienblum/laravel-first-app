@@ -29,6 +29,9 @@ class ProjectsController extends Controller
             'description' => ['required', 'min:3'],
         ]));
 
+        session()->flash('message-content', 'Project has been created');
+        session()->flash('message-type', 'primary');
+
         return redirect('/projects');
     }
 
@@ -48,12 +51,18 @@ class ProjectsController extends Controller
     {
         $project->update(request(['title', 'description']));
 
+        session()->flash('message-content', 'Project has been edited');
+        session()->flash('message-type', 'info');
+
         return redirect('/projects');
     }
 
     public function destroy(Project $project)
     {
         $project->delete();
+
+        session()->flash('message-content', 'Project has been deleted');
+        session()->flash('message-type', 'warning');
 
         return redirect('/projects');
     }
